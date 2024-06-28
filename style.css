@@ -1,35 +1,182 @@
 :root {
-    --primary-color: rgb(236, 236, 236);
-    --secondary-color: rgb(21, 21, 21);
-    --blue-color: #2bc5cd;
-    --orange-color: #ff693d;
-    --border: 2px solid var(--blue-color);
-    --spacing: 28px;
-    font-family: Arial, Helvetica, sans-serif;
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --gray-color: #a7abb3;
+  --orange-color: #ff693d;
+  --border: 2px solid var(--gray-color);
+  --spacing: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Resto del CSS */
+
+.school {
+  width: 100%;
+  grid-area: school;
+  background-image: url(https://blog.hackmetrix.com/wp-content/uploads/2023/02/%C2%BFQue-es-el-Hacking-Etico_-Una-guia-basica-para-principiantes-1024x704.png);
+}
+
+.student {
+  width: 100%;
+  grid-area: student;
+  background-image: url(https://blog.hackmetrix.com/wp-content/uploads/2023/01/Diferencias-escaneo-vulnerabilidades-ethical-hacking-1024x704.png);
+}
+
+.time {
+  width: 100%;
+  grid-area: time;
+  background-image: url(https://blog-tst.hackmetrix.com/wp-content/uploads/2023/02/Descarga-arbitraria-de-archivos-en-LimeSurvey-min-1024x704.png);
+}
+
+.alumno {
+  width: 100%;
+  grid-area: alumno;
+  background-image: url(https://blog.hackmetrix.com/wp-content/uploads/2024/03/11-Host-Header-Poisoning-1160x680.png);
+}
+
+.alumno,
+.school,
+.student,
+.time {
+    border: var(--border);
+  background-size: cover;
+  background-position: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  padding: var(--spacing);
+  margin: auto;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows:
+    1fr
+    1fr
+    1fr;
+  grid-template-areas:
+    "header school student"
+    "header main   time"
+    "alumno footer footer";
+  gap: var(--spacing);
+}
+
+header {
+  width: 100%;
+  color: var(--primary-color);
+  background-color: var(--gray-color);
+  grid-area: header;
+  display: grid;
+  justify-content: center;
+  align-items: start;
+  padding: var(--spacing);
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+header > p {
+  text-align: justify;
+}
+
+main {
+  color: var(--secondary-color);
+  border: var(--border);
+  text-align: center;
+  background-color: var(--primary-color);
+  padding: var(--spacing);
+  text-transform: uppercase;
+  grid-area: main;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  color: var(--secondary-color);
+  background-color: var(--orange-color);
+  grid-area: footer;
+  padding: var(--spacing);
+  display: grid;
+  justify-content: center;
+  align-items: start;
+  gap: var(--spacing);
+}
+
+button {
+  width: 210px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: var(--spacing);
+}
+
+@media screen and (max-width: 900px) {
+
+    .alumni,
+    .school,
+    .student,
+    .time {
+      background-size: fill;
+      background-position: center;
+    }
+  
+    body {
+      grid-template-columns: 50% 1fr;
+      grid-template-rows:
+        100%
+        340px
+        340px
+        340px
+        340px;
+  
+      grid-template-areas:
+        "header header"
+        "school student"
+        "main main"
+        "time alumno"
+        "footer footer";
+    }
   }
-  
-  /* Resto del CSS */
-  
-  
-  .school {
-    background-image: url(https://images03.nicepage.com/c461c07a441a5d220e8feb1a/d8ce469044b958508f4bdbab/blueschoolbackpackwithessentialsupplies_232148207678.jpg);
-  }
-  
-  .student {
-    background-image: url(https://images03.nicepage.com/c461c07a441a5d220e8feb1a/9e4ce16148dd5cbeb1065410/89f80abe-6acd-d8dc-a341-3e571206975b.jpg);
-  }
-  
-  .time {
-    background-image: url(https://images03.nicepage.com/c461c07a441a5d220e8feb1a/773a5aa425b1502aaac14708/f2b45624-c8f6-3aa0-0ee4-58adda3c89b0.jpg);
-  }
-  
-  .alumni {
-    background-image: url(https://images03.nicepage.com/c461c07a441a5d220e8feb1a/89993ff69c3e5244ad2bf1ba/blondestudentgirlissmilingholdingfoldernotebookherhandsuniversitybackground_101969664.jpg);
-  }
-  
+
+@media screen and (max-width: 570px) {
+
   .alumni,
   .school,
   .student,
   .time {
-    background-size: cover;
+    background-size: fill;
+    background-position: center;
   }
+
+  body {
+    grid-template-columns: 100%;
+    grid-template-rows:
+      100%
+      340px
+      340px
+      340px
+      340px
+      340px
+      1fr;
+
+    grid-template-areas:
+      "header"
+      "school"
+      "student"
+      "main"
+      "time"
+      "alumno"
+      "footer";
+  }
+}
