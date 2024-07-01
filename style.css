@@ -134,7 +134,7 @@ button {
     body {
       grid-template-columns: 50% 1fr;
       grid-template-rows:
-        100%
+        680px
         340px
         340px
         340px
